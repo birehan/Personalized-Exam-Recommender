@@ -6,3 +6,5 @@ scikit-learn
 pymongo
 textstat
 python-dotenv
+Flask
+Gunicorn
