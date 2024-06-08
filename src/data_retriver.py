@@ -1,9 +1,10 @@
 from pymongo import MongoClient
 import pandas as pd
+import os
 
 def get_data():
     # Connect to MongoDB
-    client = MongoClient('mongodb://localhost:27017/')
+    client = MongoClient(os.getenv("MONGODB_URL"))
     db = client['exam_prep']
 
     # Fetch data from collections
