@@ -30,7 +30,6 @@ def get_data():
     # Merge user answers with question and user data
     data = question_user_answers.merge(questions, left_on='questionId', right_on='_id', suffixes=('_answer', '_question'))
     data = data.merge(users, left_on='userId', right_on='_id', suffixes=('', '_user'))
-    collaborative_filtering
 
     return data
 

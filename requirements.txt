@@ -8,3 +8,4 @@ textstat
 python-dotenv
 Flask
 Gunicorn
+
