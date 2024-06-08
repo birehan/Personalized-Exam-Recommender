@@ -1,0 +1,7 @@
+flask 
+numpy 
+pandas 
+scikit-learn
+pymongo
+textstat
+gpt-2-simple
