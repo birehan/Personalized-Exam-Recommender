@@ -11,7 +11,9 @@ def get_user_by_id(user_id: str):
 
     # Fetch courses related to the specified department_id
     user = db.users.find_one({"_id": ObjectId(user_id)})
+    all_user = list(db.users.find())
     
+    print(f'all_user: {all_user}')
     # Extract unique subjects
     
     return user
