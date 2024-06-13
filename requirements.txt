@@ -8,4 +8,5 @@ textstat
 python-dotenv
 Flask
 Gunicorn
+openai
 
