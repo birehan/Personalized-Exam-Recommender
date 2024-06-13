@@ -146,12 +146,9 @@ def get_user_analysis(user_id: str, course_name:str="Biology") -> dict:
     return response
     
 
-# Set your OpenAI API key
 def get_llm_content(user_data: str):    
-    from openai import OpenAI
-    client = OpenAI(os.getenv("OPENAI_API_KEY"))
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
  
-    # Craft the prompt for the OpenAI model
     prompt =  '''
         Make user you are talking with the user. 
         Based on the following user performance data, provide a recommendation on which topics or subchapters the user should focus on improving. 
@@ -164,7 +161,6 @@ def get_llm_content(user_data: str):
         Recommendation:
         '''
   
-    # Use OpenAI's API to get the recommendation using client.chat.completions.create
     response = client.chat.completions.create(
     model="gpt-3.5-turbo",  # Specify the GPT-3.5 Turbo model
     response_format={ "type": "json_object" },
