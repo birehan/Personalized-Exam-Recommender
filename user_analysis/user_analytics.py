@@ -23,7 +23,7 @@ def get_user_course_completion(user_id: str, course_name: str="Biology"):
     return user_ana
 
 def get_user_questions_completion_by_year(user_id: str, course_name: str="Biology"):
-    client = MongoClient('mongodb://localhost:27017/')
+    client = MongoClient(os.getenv("MONGODB_URL"))
     db = client['exam_prep']
     collection = db['questions']
     questions = list(collection.find({"subject": course_name}))

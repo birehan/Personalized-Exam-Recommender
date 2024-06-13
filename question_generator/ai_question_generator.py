@@ -23,7 +23,7 @@ def append_to_subchapters_ids(new_subchapter_id, file_path="completed_subchapter
 
 def save_questions_to_db(questions: list) -> None:
     try:
-        client = MongoClient('mongodb://localhost:27017/')
+        client = MongoClient(os.getenv("MONGODB_URL"))
         db = client['exam_prep']
         result = db.questions.insert_many(questions)
         print(f"Successfully inserted {len(result.inserted_ids)} questions.")
@@ -86,7 +86,7 @@ def generate_questions(client, content, num_questions=5):
 
 def extract_courses_contents(subject: str) -> list:
     sub_chapter_ids = read_subchapters_ids()
-    client = MongoClient('mongodb://localhost:27017/')
+    client = MongoClient(os.getenv("MONGODB_URL"))
     db = client['exam_prep']
     openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
